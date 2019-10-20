@@ -1,7 +1,7 @@
 # Job Search App
 
-This is a Bambu assignment for the full stack position. The assignment was to create
-a job search website 
+This is a Bambu assignment for the full stack position. The assignment is to create
+a job search application 
 
 ## Getting Started
 
@@ -10,8 +10,8 @@ You can accessed here: [Deployed App](https://d1l0buvv1sm9ma.cloudfront.net/)
 or can start locally: 
 
 ```
-    npm i
-    npm run dev   
+npm i
+npm run dev   
 ```
 
 
