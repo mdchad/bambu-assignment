@@ -1,8 +1,9 @@
-import React, {ChangeEvent, useState} from 'react'
+import React, {ChangeEvent, useEffect, useRef, useState} from 'react'
 import Head from 'next/head'
 import '../styles/index.css'
 import fetch from 'isomorphic-unfetch'
 import parse from 'html-react-parser'
+import AlgoliaPlaces from 'algolia-places-react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 interface Job {
@@ -42,19 +43,25 @@ const Home: React.FC = (): JSX.Element => {
             </Head>
             <div className="m-auto antialiased font-sans font-serif font-mono text-center bg-gray-900 min-h-screen flex flex-col items-center text-white text-2xl">
                 <div className="mt-10 flex flex-col">
-                    <h1 className="text-3xl">Job Search</h1>
-                    <form onSubmit={e => submit(e)} className="ml-4 flex flex-row">
-                        <input
+                    <h1 className="text-3xl mb-2">Job Search</h1>
+                    <form onSubmit={e => submit(e)} className="ml-4 flex flex-row" id="input-styling-address">
+                        <AlgoliaPlaces
                             className="flex-3 bg-gray-200 hover:bg-white hover:border-gray-300 focus:outline-none focus:bg-white focus:shadow-outline focus:border-gray-300 appearance-none border border-transparent rounded w-full py-2 px-4 text-gray-700 leading-tight"
                             placeholder="Enter a city"
-                            onChange={(e: ChangeEvent<HTMLInputElement>) => setCity(e.target.value)}/>
+                            options={{
+                                appId: 'plNO0SE50YSI',
+                                style: false,
+                                apiKey: 'e687b246c8686642d1baad273ea054eb',
+                                type: 'city',
+                                aroundLatLngViaIP: false
+                                // Other options from https://community.algolia.com/places/documentation.html#options
+                            }}
+                            onChange={e => setCity(e.suggestion.name)}/>
                         <button className="flex-1 mx-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded" type="submit">Submit</button>
                     </form>
                 </div>
                 <div className="my-32 mx-24">
                     { jobs.map(job => {
-                    const regex = /(<[^>]+>|<[^>]>|<\/[^>]>)/g;
-                    const clean = job.description.replace(regex, '')
                     return (
                             <div className="max-w-sm w-full lg:max-w-full lg:flex">
                                 <div className="w-full border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">

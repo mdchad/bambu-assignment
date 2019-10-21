@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#input-styling-address .ap-nostyle-input-icon {
+    display: block;
+    position: absolute;
+    background: none;
+    border: none;
+}
+
+#input-styling-address .ap-nostyle-icon-pin  { right: 10px;top: 13px; }
+#input-styling-address .ap-nostyle-icon-clear { right: 10px;top: 18px }
+
+#input-styling-address .ap-nostyle-dropdown-menu {
+    box-shadow: none;
+    border: 1px solid #dadada;
+    border-radius: 0;
+    background: #fff;
+    font-size: 12px;
+    width: 100%;
+    cursor: pointer;
+}
+
+#input-styling-address .ap-nostyle-suggestion { border-bottom: 1px solid #efefef; color: black}
+#input-styling-address .ap-nostyle-suggestion:hover { background-color: #dadada; }
