@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+/*Algolia CSS*/
+
 #input-styling-address .ap-nostyle-input-icon {
     display: block;
     position: absolute;
@@ -24,3 +26,21 @@
 
 #input-styling-address .ap-nostyle-suggestion { border-bottom: 1px solid #efefef; color: black}
 #input-styling-address .ap-nostyle-suggestion:hover { background-color: #dadada; }
+
+.ap-nostyle-input {
+    padding-bottom: 0.5em;
+}
+
+.ap-nostyle-dropdown-menu {
+    border-radius: 5px;
+}
+
+.ap-nostyle-suggestion {
+    display: flex;
+    flex-direction: row;
+    padding: 1em;
+}
+
+.ap-nostyle-name .ap-nostyle-address {
+    padding-top: 0.5em;
+}

@@ -22,12 +22,22 @@ interface Job {
 const Home: React.FC = (): JSX.Element => {
     const [city, setCity] = useState<string>('');
     const [jobs, setJob] = useState<Job[]>([]);
+    const [error, setError] = useState<Boolean>(false)
+    const [loading, setLoading] = useState<Boolean>(false)
 
     const submit = async (e: React.FormEvent) => {
         e.preventDefault()
-        const result = await fetch(`${'https://cors-anywhere.herokuapp.com/'}https://jobs.github.com/positions.json?location=${city}`)
-        const json: Job[] = await result.json()
-        setJob(json)
+        try {
+            // by pass CORS
+            setLoading(true)
+            const result = await fetch(`${'https://cors-anywhere.herokuapp.com/'}https://jobs.github.com/positions.json?location=${city}`);
+            const json: Job[] = await result.json()
+            setJob(json)
+            setLoading(false)
+        } catch (e) {
+            console.error(e)
+            setError(true)
+        }
     }
 
     return (
