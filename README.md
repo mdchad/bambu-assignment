@@ -29,12 +29,12 @@ in the most performant way. The technology that I used are those that would fit 
 #### Why use next.js?
 
 For a simple web application with minimal interaction and just a simple API call on the backend, for me the best way is to server-render the application. Server-rendered app will boost the
-the initial load time since browser is not doing the the rendering on the browser.
+the initial load time since browser is not doing the rendering on the browser.
 
 #### Why use lambda@Edge?
 
 [Edge-side rendering](https://youtu.be/MBndZddVQdw?t=811) has been on the rise lately. Lambda@Edge provides us with the architecture to deliver our web application
-to the users using AWS Lambda together with Cloudfront. Cloudfront is a CDN which means that it will serve our users nearest to the edge location and simultaneously improve
+to the users using AWS Lambda together with Cloudfront. Cloudfront is a CDN which means that it will make use of the nearest edge location and simultaneously improve
 the delivery speed to our users. 
 
 ## Further Reading 
