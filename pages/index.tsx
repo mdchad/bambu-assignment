@@ -64,7 +64,7 @@ const Home: React.FC = (): JSX.Element => {
                        <Button customStyle={{ flex: 'flex-1'}} testId="submit-input">Submit</Button>
                     </form>
                 </div>
-                <div className="my-32 mx-24">
+                <div className="my-10 mx-4 sm:my-10 sm:mx-4 md:my-32 md:mx-24 lg:my-32 lg:mx-24 xl:my-32 xl:mx-24">
                     { error ? <Error/> : null }
                     { loading ? <LoadingIcon/>
                         : !jobs.length && searched ? (
@@ -94,7 +94,7 @@ const Home: React.FC = (): JSX.Element => {
                                     <h1 className="text-gray-900 text-left font-bold text-xl mb-2">
                                         {job.title}
                                     </h1>
-                                    <Button customStyle={{ width: 'w-16', textSize: 'text-xs', margin: 'm-8 md:m-0 lg:m-0 xl:m-0'}} onClick={() => window.open(job.url)}>View</Button>
+                                    <Button customStyle={{ width: 'w-16', textSize: 'text-xs', margin: 'my-8 md:m-0 lg:m-0 xl:m-0'}} onClick={() => window.open(job.url)}>View</Button>
                                 </div>
                                 <p className="text-gray-700 text-lg text-left mb-4">{job.company}</p>
                                 <div className="text-gray-700 text-xs text-left">{parse(job.description)}</div>
