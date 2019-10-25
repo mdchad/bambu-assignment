@@ -5,7 +5,7 @@ a job search application
 
 ## Getting Started
 
-[The Deployed App](https://d1l0buvv1sm9ma.cloudfront.net/). The app is reponsive and be viewed on mobile
+[The Deployed App](https://d1l0buvv1sm9ma.cloudfront.net/). The app is reponsive and can be viewed on mobile
 
 or can start locally: 
 
