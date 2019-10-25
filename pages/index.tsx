@@ -61,27 +61,32 @@ const Home: React.FC = (): JSX.Element => {
                     <h1 className="text-3xl mb-2">Job Search</h1>
                     <form onSubmit={e => submit(e)} className="ml-4 flex flex-row" id="input-styling-address">
                        <Input setCity={setCity} />
-                       <Button customStyle={{ flex: 'flex-1'}}>Submit</Button>
+                       <Button customStyle={{ flex: 'flex-1'}} testId="submit-input">Submit</Button>
                     </form>
                 </div>
                 <div className="my-32 mx-24">
                     { error ? <Error/> : null }
-                    { loading ? <LoadingIcon/> : !jobs.length && searched ? <div className="max-w-sm w-full lg:max-w-full lg:flex">
-                        <Container>
-                            <Header>
-                                No Jobs Found in {city}
-                            </Header>
-                        </Container>
-                    </div> : <Container>
-                        <Header>
-                            Start searching for jobs in your City. Here some of the popular cities: San Francisco, Berlin, London
-                        </Header>
-                    </Container> }
-                    { searched && jobs.map(job => {
+                    { loading ? <LoadingIcon/>
+                        : !jobs.length && searched ? (
+                            <div className="max-w-sm w-full lg:max-w-full lg:flex">
+                                <Container>
+                                    <Header>
+                                        No Jobs Found in {city}
+                                    </Header>
+                                </Container>
+                            </div>
+                        ) : !jobs.length && !searched ? (
+                            <Container>
+                                <Header>
+                                    Start searching for jobs in your City. Here some of the popular cities: San Francisco, Berlin, London
+                                </Header>
+                            </Container>) : null
+                    }
+                    { !loading && searched && jobs.map(job => {
                     return (
                         <div className="max-w-sm w-full lg:max-w-full lg:flex">
                             <Container>
-                                <p className="text-sm text-gray-600 flex items-center">
+                                <p className="text-sm text-gray-600 flex items-center" data-testid="job-location">
                                     <LocationIcon />
                                     {job.location}
                                 </p>
@@ -89,7 +94,7 @@ const Home: React.FC = (): JSX.Element => {
                                     <h1 className="text-gray-900 text-left font-bold text-xl mb-2">
                                         {job.title}
                                     </h1>
-                                    <Button customStyle={{ width: 'w-16', textSize: 'text-xs'}} onClick={() => window.open(job.url)}>View</Button>
+                                    <Button customStyle={{ width: 'w-16', textSize: 'text-xs', margin: 'm-8 md:m-0 lg:m-0 xl:m-0'}} onClick={() => window.open(job.url)}>View</Button>
                                 </div>
                                 <p className="text-gray-700 text-lg text-left mb-4">{job.company}</p>
                                 <div className="text-gray-700 text-xs text-left">{parse(job.description)}</div>

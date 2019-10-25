@@ -6,7 +6,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ children }) => {
     return (
-        <h1 className="text-gray-900 text-left font-bold text-xl mb-2 w-full">{children}</h1>
+        <h1 data-testid="default-title" className="text-gray-900 text-left font-bold text-xl mb-2 w-full">{children}</h1>
     )
 }
 
