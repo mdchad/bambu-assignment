@@ -101,7 +101,7 @@ exports[`matches snapshot 1`] = `
         </form>
       </div>
       <div
-        class="my-32 mx-24"
+        class="my-10 mx-4 sm:my-10 sm:mx-4 md:my-32 md:mx-24 lg:my-32 lg:mx-24 xl:my-32 xl:mx-24"
       >
         <div
           class="w-full border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 block justify-between leading-normal"
